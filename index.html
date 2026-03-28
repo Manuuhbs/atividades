@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="clicar">clique aqui</button>
+    <br />
+    <button id="menos">-</button>
+    <button id="mais">+</button>
+    <p id="contador-valor">0</p>
+    <script>
+      let contador = 0;
+      const botao = document.getElementById("clicar");
+      const menos = document.getElementById("menos");
+      const mais = document.getElementById("mais");
+      const contadorValor = document.getElementById("contador-valor");
+      function imprimeBatata() {
+        window.alert("batata");
+      }
+
+
+      function contaMenos() {
+        contador--;
+        contadorValor.textContent = contador;
+      }
+      function contaMais() {
+        contador++;
+        contadorValor.textContent = contador;
+      }
+      menos.addEventListener("click", contaMenos);
+      mais.addEventListener("click", contaMais);
+      botao.addEventListener("click", imprimeBatata);
+      //botao.addEventListener('click', function(){
+      //    console.log("batata");
+      //})
+    </script>
+  </body>
+</html>
+
+
