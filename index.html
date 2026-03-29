@@ -47,6 +47,8 @@
     <section>
       <h4>Itens na lista</h4>
       <input type="text" id="item" placeholder="escreva o item" />
+      <button id="adicionar">Adicionar</button>
+      <ul id="lista-ul"></ul>
     </section>
     <script>
       let contador = 0;
@@ -107,6 +109,20 @@
       btnsubtrair.addEventListener("click", subtraiConta);
       btnvezes.addEventListener("click", multiplicaConta);
       btndividir.addEventListener("click", divideConta);
+
+      const itemCampo = document.getElementById("item");
+      const listaUl = document.getElementById("lista-ul");
+      const btnAdicionar = document.getElementById("adicionar");
+
+      function adicionaLista() {
+        const texto = itemCampo.value;
+        const li = document.createElement("li");
+        li.textContent = texto;
+        listaUl.appendChild(li);
+        itemCampo.value = "";
+        itemCampo.focus();
+      }
+      btnAdicionar.addEventListener('click', adicionaLista);
     </script>
   </body>
 </html>
