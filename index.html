@@ -2,14 +2,52 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>Exercícios aula 4</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 0 20px;
+      }
+      .campoResultado {
+        color: rgb(20, 220, 143);
+      }
+      .contadorCor {
+        color: rgb(20, 220, 143);
+      }
+    </style>
   </head>
   <body>
-    <button id="clicar">clique aqui</button>
-    <br />
-    <button id="menos">-</button>
-    <button id="mais">+</button>
-    <p id="contador-valor">0</p>
+    <section>
+      <h1>Exercícios</h1>
+      <h4>Mensagem surpresa</h4>
+      <button id="clicar">clique aqui</button>
+    </section>
+    <section>
+      <h4>Contador</h4>
+      <button id="mais">+</button>
+      <p id="contador-valor" class="contadorCor">0</p>
+      <button id="menos">-</button>
+    </section>
+    <section>
+      <h4>Calculadora</h4>
+      <input type="number" id="valor1" placeholder="Valor 1" />
+      <input type="number" id="valor2" placeholder="Valor 2" />
+      <section>
+        <button id="somar">+</button>
+        <button id="subtrair">-</button>
+        <button id="vezes">x</button>
+        <button id="dividir">/</button>
+      </section>
+      <p>Resultado :</p>
+      <p id="valor-resultado" class="campoResultado"></p>
+      <p></p>
+    </section>
+    <section>
+      <h4>Itens na lista</h4>
+      <input type="text" id="item" placeholder="escreva o item" />
+    </section>
     <script>
       let contador = 0;
       const botao = document.getElementById("clicar");
@@ -19,7 +57,6 @@
       function imprimeBatata() {
         window.alert("batata");
       }
-
 
       function contaMenos() {
         contador--;
@@ -35,8 +72,41 @@
       //botao.addEventListener('click', function(){
       //    console.log("batata");
       //})
+      const valorA = document.getElementById("valor1");
+      const valorB = document.getElementById("valor2");
+      const resultadoConta = document.getElementById("valor-resultado");
+      const btnsomar = document.getElementById("somar");
+      const btnsubtrair = document.getElementById("subtrair");
+      const btnvezes = document.getElementById("vezes");
+      const btndividir = document.getElementById("dividir");
+
+      function somaConta() {
+        const resultado = Number(valorA.value) + Number(valorB.value);
+        resultadoConta.textContent = resultado;
+      }
+      function subtraiConta() {
+        const resultado = Number(valorA.value) - Number(valorB.value);
+        resultadoConta.textContent = resultado;
+      }
+      function multiplicaConta() {
+        const resultado = Number(valorA.value) * Number(valorB.value);
+        resultadoConta.textContent = resultado;
+      }
+      function divideConta() {
+        const a = Number(valorA.value);
+        const b = Number(valorB.value);
+        if (b === 0) {
+          window.alert("não é possivel dividir por zero");
+          resultadoConta.textContent = "";
+        } else {
+          const resultado = a / b;
+          resultadoConta.textContent = resultado;
+        }
+      }
+      btnsomar.addEventListener("click", somaConta);
+      btnsubtrair.addEventListener("click", subtraiConta);
+      btnvezes.addEventListener("click", multiplicaConta);
+      btndividir.addEventListener("click", divideConta);
     </script>
   </body>
 </html>
-
-
